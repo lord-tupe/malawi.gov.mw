@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government of Malawi | Official Portal</title>
+    
+    <!-- Fonts & External Libraries -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Accessibility Bar -->
+    <div class="accessibility-bar">
+        <div class="container">
+            <div class="lang-toggle">
+                <button class="active">EN</button>
+                <button>NY</button>
+            </div>
+            <div class="accessibility-controls">
+                <button onclick="changeFontSize(-1)" title="Decrease text size">A-</button>
+                <button onclick="changeFontSize(1)" title="Increase text size">A+</button>
+                <a href="#main-content">Skip to main content</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Official Banner -->
+    <div class="official-banner">
+        <div class="container">
+            <div class="flag-icon">
+                <div class="flag-stripe black"></div>
+                <div class="flag-stripe red"></div>
+                <div class="flag-stripe green"></div>
+            </div>
+            <span>An official website of the Government of the Republic of Malawi</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-main">
+                <a href="#" class="logo">
+                    <div class="logo-emblem">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="8" r="4" fill="#CE1126"/>
+                            <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Government of Malawi</span>
+                        <span class="logo-subtitle">Official Portal</span>
+                    </div>
+                </a>
+
+                <div class="header-search">
+                    <div class="search-wrapper">
+                        <input type="text" id="searchInput" placeholder="Search services, forms, information..." autocomplete="off" oninput="handleSearch(this.value)" onfocus="handleSearch(this.value)">
+                        <button onclick="performSearch()">Search</button>
+                    </div>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <button class="mobile-toggle" onclick="toggleMobileMenu()" id="mobileToggle">
+                    &#9776; Menu
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-search">
+            <div class="search-wrapper">
+                <input type="text" placeholder="Search services..." oninput="handleSearch(this.value)">
+                <button onclick="performSearch()">Search</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-nav" id="mainNav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link active">Services</a>
+                        <div class="nav-dropdown">
+                            <a href="#" onclick="openServiceModal('passport')">Apply for Passport / ID</a>
+                            <a href="#" onclick="openServiceModal('tax')">Pay Taxes Online</a>
+                            <a href="#" onclick="openServiceModal('business')">Register a Business</a>
+                            <a href="#" onclick="openServiceModal('visa')">Apply for Visa / Permit</a>
+                            <a href="#" onclick="openServiceModal('health')">Health Services</a>
+                            <a href="#" onclick="openServiceModal('education')">Education & Scholarships</a>
+                            <a href="#" onclick="openServiceModal('welfare')">Social Welfare & Pensions</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#government" class="nav-link">Government</a>
+                        <div class="nav-dropdown">
+                            <a href="#government">The Presidency</a>
+                            <a href="#government">Cabinet & Ministers</a>
+                            <a href="#government">Parliament</a>
+                            <a href="#government">Ministries & Departments</a>
+                            <a href="#government">Constitution & Laws</a>
+                            <a href="#government">National Symbols</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#business" class="nav-link">Business & Investment</a>
+                        <div class="nav-dropdown">
+                            <a href="#business">Starting a Business</a>
+                            <a href="#business">Investment Opportunities</a>
+                            <a href="#business">Tenders & Procurement</a>
+                            <a href="#business">Trade & Export</a>
+                            <a href="#business">Tax for Businesses</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#news" class="nav-link">News & Media</a>
+                        <div class="nav-dropdown">
+                            <a href="#news">Official Press Releases</a>
+                            <a href="#news">Presidential Speeches</a>
+                            <a href="#news">Public Notices</a>
+                            <a href="#news">National Calendar</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About Malawi</a>
+                        <div class="nav-dropdown">
+                            <a href="#about">History & Culture</a>
+                            <a href="#about">Tourism & National Parks</a>
+                            <a href="#about">Demographics</a>
+                            <a href="#about">Diaspora</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1 class="animate-in">Welcome to the Government of Malawi</h1>
+                        <p class="animate-in delay-1">Your one-stop platform for government services, information, and resources. Find what you need quickly and complete tasks with ease.</p>
+                        <div class="hero-actions animate-in delay-2">
+                            <a href="#services" class="btn btn-primary">Explore Services</a>
+                            <a href="#government" class="btn btn-outline">Meet the Government</a>
+                        </div>
+                    </div>
+                    <div class="hero-image animate-in delay-3">
+                        <img id="heroImage" src="https://image.qwenlm.ai/public_source/81266ce6-095a-4a35-8fe3-2e63e20c629b/10f0c4c87-75a9-43c3-89c1-7e95fbb9b96d.png" alt="Lake Malawi landscape with warm sunrise colors">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Section -->
+        <section class="quick-actions">
+            <div class="container">
+                <div class="quick-actions-grid">
+                    <a href="#" class="quick-action-card animate-in delay-1" onclick="openServiceModal('passport')">
+                        <div class="quick-action-icon"><i class="fa-solid fa-id-card" aria-hidden="true"></i></div>
+                        <h3>Passport & ID</h3>
+                        <p>Apply or renew</p>
+                    </a>
+                    <a href="#" class="quick-action-card animate-in delay-2" onclick="openServiceModal('tax')">
+                        <div class="quick-action-icon"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i></div>
+                        <h3>Pay Taxes</h3>
+                        <p>Online tax services</p>
+                    </a>
+                    <a href="#" class="quick-action-card animate-in delay-3" onclick="openServiceModal('business')">
+                        <div class="quick-action-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+                        <h3>Register Business</h3>
+                        <p>Start your company</p>
+                    </a>
+                    <a href="#news" class="quick-action-card animate-in delay-4">
+                        <div class="quick-action-icon"><i class="fa-solid fa-newspaper" aria-hidden="true"></i></div>
+                        <h3>Latest News</h3>
+                        <p>Official updates</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Government Services</h2>
+                    <p>Find the service you need. Organized by life events and common tasks for faster access.</p>
+                </div>
+                <div class="services-grid">
+                    <a href="#" class="service-card" onclick="openServiceModal('passport')">
+                        <div class="service-card-icon"><i class="fa-solid fa-plane-departure" aria-hidden="true"></i></div>
+                        <h3>Passports & Travel Documents</h3>
+                        <p>Apply for a new passport, renew an existing one, or get emergency travel documents.</p>
+                        <span class="card-link">Apply now &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('tax')">
+                        <div class="service-card-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                        <h3>Tax Services</h3>
+                        <p>File your taxes, check your TPIN status, and access online payment systems.</p>
+                        <span class="card-link">Pay taxes online &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('business')">
+                        <div class="service-card-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+                        <h3>Business Registration</h3>
+                        <p>Register a new company, renew trade licenses, and access business support services.</p>
+                        <span class="card-link">Register your business &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('visa')">
+                        <div class="service-card-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+                        <h3>Visas & Immigration</h3>
+                        <p>Apply for entry visas, work permits, and residency permits for Malawi.</p>
+                        <span class="card-link">Apply for visa &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('health')">
+                        <div class="service-card-icon"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+                        <h3>Health Services</h3>
+                        <p>Find health facilities, access health alerts, and learn about public health programs.</p>
+                        <span class="card-link">Find health services &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('education')">
+                        <div class="service-card-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+                        <h3>Education & Scholarships</h3>
+                        <p>Access scholarship applications, exam results, and education resources.</p>
+                        <span class="card-link">Explore opportunities &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('welfare')">
+                        <div class="service-card-icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></div>
+                        <h3>Social Welfare & Pensions</h3>
+                        <p>Apply for social support programs, pensions, and welfare benefits.</p>
+                        <span class="card-link">Check eligibility &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('documents')">
+                        <div class="service-card-icon"><i class="fa-solid fa-file-alt" aria-hidden="true"></i></div>
+                        <h3>Documents & Forms</h3>
+                        <p>Download government forms, access laws and policies, and find official publications.</p>
+                        <span class="card-link">Browse documents &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('employment')">
+                        <div class="service-card-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+                        <h3>Employment & Labour</h3>
+                        <p>Job seeker resources, labour laws, worker rights, and employment services.</p>
+                        <span class="card-link">View opportunities &#8594;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Government Section -->
+        <section class="section section-alt" id="government">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Government</h2>
+                    <p>Learn about the structure of government, leadership, and institutions serving the people of Malawi.</p>
+                </div>
+                <div class="government-grid">
+                    <a href="#" class="gov-card" onclick="openGovModal('president')">
+                        <div class="gov-card-icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>The Presidency</h3>
+                            <p>Office of the President, biography, speeches, and official statements.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card" onclick="openGovModal('cabinet')">
+                        <div class="gov-card-icon"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>Cabinet & Ministers</h3>
+                            <p>Meet the ministers leading government ministries and their portfolios.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card" onclick="openGovModal('parliament')">
+                        <div class="gov-card-icon"><i class="fa-solid fa-landmark-dome" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>Parliament</h3>
+                            <p>National Assembly proceedings, bills, and parliamentary information.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card" onclick="openGovModal('ministries')">
+                        <div class="gov-card-icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>Ministries & Departments</h3>
+                            <p>Directory of all government ministries, departments, and agencies.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card" onclick="openGovModal('constitution')">
+                        <div class="gov-card-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>Constitution & Laws</h3>
+                            <p>Access the Constitution of Malawi and key legislation.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card" onclick="openGovModal('symbols')">
+                        <div class="gov-card-icon"><i class="fa-solid fa-flag" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>National Symbols</h3>
+                            <p>The flag, coat of arms, anthem, and other national symbols of Malawi.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Section -->
+        <section class="section" id="business">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Business & Investment</h2>
+                    <p>Resources for entrepreneurs, investors, and businesses operating in Malawi.</p>
+                </div>
+                <div class="services-grid">
+                    <a href="#" class="service-card" onclick="openBizModal('start')">
+                        <div class="service-card-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+                        <h3>Starting a Business</h3>
+                        <p>Step-by-step guide to registering and launching your business in Malawi.</p>
+                        <span class="card-link">Get started &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openBizModal('invest')">
+                        <div class="service-card-icon"><i class="fa-solid fa-hand-holding-usd" aria-hidden="true"></i></div>
+                        <h3>Investment Opportunities</h3>
+                        <p>Explore sectors, incentives, and support available for investors in Malawi.</p>
+                        <span class="card-link">View opportunities &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openBizModal('tenders')">
+                        <div class="service-card-icon"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
+                        <h3>Tenders & Procurement</h3>
+                        <p>Access government tenders, procurement notices, and bidding information.</p>
+                        <span class="card-link">View tenders &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openBizModal('trade')">
+                        <div class="service-card-icon"><i class="fa-solid fa-boxes-packing" aria-hidden="true"></i></div>
+                        <h3>Trade & Export</h3>
+                        <p>Export guides, trade statistics, and market access information.</p>
+                        <span class="card-link">Explore trade &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openServiceModal('tax')">
+                        <div class="service-card-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
+                        <h3>Tax for Businesses</h3>
+                        <p>Corporate tax information, filing requirements, and payment options.</p>
+                        <span class="card-link">Learn about tax &#8594;</span>
+                    </a>
+                    <a href="#" class="service-card" onclick="openBizModal('open-data')">
+                        <div class="service-card-icon"><i class="fa-solid fa-chart-bar" aria-hidden="true"></i></div>
+                        <h3>Open Data</h3>
+                        <p>Access government datasets, statistics, and transparency reports.</p>
+                        <span class="card-link">Browse data &#8594;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 id="statCitizens">20M+</h3>
+                        <p>Citizens Served</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>150+</h3>
+                        <p>Online Services</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>28</h3>
+                        <p>Government Ministries</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Digital Access</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="section section-alt" id="news">
+            <div class="container">
+                <div class="section-header">
+                    <h2>News & Media</h2>
+                    <p>Official press releases, presidential speeches, and public notices from the Government of Malawi.</p>
+                    <a href="#" class="view-all">View all news &#8594;</a>
+                </div>
+                <div class="news-grid">
+                    <a href="#" class="news-card">
+                        <div class="news-card-image">
+                            <img id="newsImg1" src="https://image.qwenlm.ai/public_source/81266ce6-095a-4a35-8fe3-2e63e20c629b/10657ea4a-018d-4e2f-abd1-a48646e44cfd.png" alt="Government documents and official notices">
+                        </div>
+                        <div class="news-card-body">
+                            <span class="news-card-tag">Press Release</span>
+                            <h3>Government Launches New Digital Services Portal for Citizens</h3>
+                            <p>The Government of Malawi today unveiled a modernized digital platform to improve access to public services across all districts.</p>
+                            <span class="news-card-date">15 January 2025</span>
+                        </div>
+                    </a>
+                    <a href="#" class="news-card">
+                        <div class="news-card-image">
+                            <img id="newsImg2" src="https://image.qwenlm.ai/public_source/81266ce6-095a-4a35-8fe3-2e63e20c629b/17209bccc-2a93-4025-8a21-7970880a4cbe.png" alt="Presidential address">
+                        </div>
+                        <div class="news-card-body">
+                            <span class="news-card-tag">Presidential Speech</span>
+                            <h3>State of the Nation Address Highlights Economic Recovery Plans</h3>
+                            <p>The President outlined key priorities for economic growth, infrastructure development, and social welfare in the annual address.</p>
+                            <span class="news-card-date">12 January 2025</span>
+                        </div>
+                    </a>
+                    <a href="#" class="news-card">
+                        <div class="news-card-image" style="background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%); display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-bullhorn" style="font-size: 48px; color: rgba(255,255,255,0.8);"></i>
+                        </div>
+                        <div class="news-card-body">
+                            <span class="news-card-tag">Public Notice</span>
+                            <h3>Updated Requirements for National ID Card Applications</h3>
+                            <p>The Department of National Registration and Identification has announced updated documentation requirements effective immediately.</p>
+                            <span class="news-card-date">10 January 2025</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Malawi</h2>
+                    <p>Discover the Warm Heart of Africa. Learn about our history, culture, and natural beauty.</p>
+                </div>
+                <div class="government-grid">
+                    <a href="#" class="gov-card">
+                        <div class="gov-card-icon"><i class="fa-solid fa-landmark-flag" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>History & Culture</h3>
+                            <p>Explore the rich heritage, traditions, and historical journey of the Malawian people.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card">
+                        <div class="gov-card-icon"><i class="fa-solid fa-tree" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>Tourism & National Parks</h3>
+                            <p>Plan your visit to Lake Malawi, Liwonde National Park, and other natural wonders.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card">
+                        <div class="gov-card-icon"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>Demographics</h3>
+                            <p>Population statistics, census data, and key demographic indicators for Malawi.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="gov-card">
+                        <div class="gov-card-icon"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i></div>
+                        <div>
+                            <h3>Diaspora</h3>
+                            <p>Resources and services for Malawians living abroad, including consular services.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Need Help Finding a Service?</h2>
+                <p>Our support team is available to help you navigate government services and complete your tasks.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-white">Contact Us</a>
+                    <a href="#" class="btn btn-outline" onclick="openServiceModal('help')">Report a Problem</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact the Government</h2>
+                <p>Get in touch with us. Choose the appropriate channel for your inquiry.</p>
+            </div>
+            <div class="government-grid">
+                <div style="background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 32px;">
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px;">Send Us a Message</h3>
+                    <form onsubmit="handleContactForm(event)">
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Inquiry Type</label>
+                            <select style="width: 100%; padding: 10px 12px; border: 2px solid var(--gray-300); border-radius: var(--radius); font-size: 14px; font-family: inherit;" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="service">Service Inquiry</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="complaint">Report a Problem</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Full Name</label>
+                            <input type="text" style="width: 100%; padding: 10px 12px; border: 2px solid var(--gray-300); border-radius: var(--radius); font-size: 14px; font-family: inherit;" placeholder="Your full name" required>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Email Address</label>
+                            <input type="email" style="width: 100%; padding: 10px 12px; border: 2px solid var(--gray-300); border-radius: var(--radius); font-size: 14px; font-family: inherit;" placeholder="your@email.com" required>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px;">Message</label>
+                            <textarea rows="4" style="width: 100%; padding: 10px 12px; border: 2px solid var(--gray-300); border-radius: var(--radius); font-size: 14px; font-family: inherit; resize: vertical;" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-green" style="width: 100%; justify-content: center;">Submit Inquiry</button>
+                    </form>
+                </div>
+                <div>
+                    <div style="background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 16px;">
+                        <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Office of the President</h3>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 8px;"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Presidential Building, Capital City, Lilongwe, Malawi</p>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 8px;"><i class="fa-solid fa-phone" aria-hidden="true"></i> +265 1 771 222</p>
+                        <p style="font-size: 14px; color: var(--gray-600);"><i class="fa-solid fa-envelope" aria-hidden="true"></i> info@government.mw</p>
+                    </div>
+                    <div style="background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 16px;">
+                        <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Office Hours</h3>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 4px;">Monday to Friday: 8:00 AM to 5:00 PM</p>
+                        <p style="font-size: 14px; color: var(--gray-600);">Saturday, Sunday: Closed</p>
+                    </div>
+                    <div style="background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 24px;">
+                        <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Emergency Services</h3>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 4px;">Police: 990 or 997</p>
+                        <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 4px;">Ambulance: 998</p>
+                        <p style="font-size: 14px; color: var(--gray-600);">Fire: 999</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-title">Government of Malawi</div>
+                    <p>The official digital portal of the Government of the Republic of Malawi. Providing citizens, businesses, and visitors with access to government services and information.</p>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" title="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#" onclick="openServiceModal('passport')">Passports & ID</a></li>
+                        <li><a href="#" onclick="openServiceModal('tax')">Tax Services</a></li>
+                        <li><a href="#" onclick="openServiceModal('business')">Business Registration</a></li>
+                        <li><a href="#" onclick="openServiceModal('visa')">Visas & Immigration</a></li>
+                        <li><a href="#" onclick="openServiceModal('health')">Health Services</a></li>
+                        <li><a href="#" onclick="openServiceModal('education')">Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Government</h4>
+                    <ul>
+                        <li><a href="#">The Presidency</a></li>
+                        <li><a href="#">Cabinet Ministers</a></li>
+                        <li><a href="#">Parliament</a></li>
+                        <li><a href="#">Ministries</a></li>
+                        <li><a href="#">Constitution</a></li>
+                        <li><a href="#">National Symbols</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Report a Problem</a></li>
+                        <li><a href="#">Access to Information</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; <span id="footerYear">2026</span> Government of the Republic of Malawi. All Rights Reserved.<br>Designed and Developed by <a href="https://lord-tupe.github.io/atupele.mkagula.portfolio/" target="_blank">Atupele Nathan Mkagula</a></span>
+                <div>
+                    <a href="#">Privacy</a> &nbsp;|&nbsp;
+                    <a href="#">Terms</a> &nbsp;|&nbsp;
+                    <a href="#">Sitemap</a> &nbsp;|&nbsp;
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">&#8593;</button>
+
+    <!-- Modal Overlay -->
+    <div class="overlay" id="serviceOverlay">
+        <div class="overlay-content" id="overlayContent">
+            <button class="overlay-close" onclick="closeOverlay()">&times;</button>
+            <div id="overlayBody"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/search.js"></script>
+    <script src="js/modal-content.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/ui.js"></script>
+
+</body>
+</html>
