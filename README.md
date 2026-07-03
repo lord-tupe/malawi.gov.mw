@@ -1,3 +1,43 @@
+# 🇲🇼 malawi.gov.mw — The Digital Government Portal
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/your-repo)
+[![Accessibility](https://img.shields.io/badge/WCAG-2.1_AA-blue)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+[![Status](https://img.shields.io/badge/status-Beta-orange)](https://github.com/your-repo)
+
+**The official revamp of the Government of Malawi's central web presence.**
+
+This project reimagines `malawi.gov.mw` as an international-standard, citizen-first digital ecosystem. It replaces legacy parameter-based URLs (`index.php?id=XX`) with a clean, task-oriented architecture designed to serve 4 core user groups: **Citizens**, **Businesses/Investors**, **Visitors**, and **Government Administrators**.
+
+| Feature | Implementation |
+| :--- | :--- |
+| **Design System** | GOV.UK Design System (adapted with Malawi flag colors: Black, Red, Green) |
+| **Information Architecture** | 5 primary hubs: Services, Government, Business, News, About Malawi |
+| **Content Strategy** | Plain language (Grade 8 reading level), action-led CTAs, structured service pages |
+| **Tech Stack** | [e.g., Next.js 15, Tailwind CSS, Strapi CMS, deployed on AWS/Vercel] |
+| **Integration** | Gateway pages linking to `evisa.gov.mw`, `trade.gov.mw`, `health.gov.mw`, and `ogp.gov.mw` |
+
+> **Pilot Status:** We have successfully mapped the top 50 highest-traffic pages to the new IA. 301 redirects are in place, with 4 core templates (Service, Ministry, News, Landing) ready for staging.
+
+📌 **[View Demo](https://staging.malawi.gov.mw)** · 📖 **[Read the Audit Report](./docs/pilot-audit.md)** · 🐛 **[Report an Issue](https://github.com/your-repo/issues)**
+
+malawi.gov.mw
+
+The digital front door for the Republic of Malawi. This repository contains the source code, design system implementation, and content strategy for the modernized government website.
+
+Our mission is to transform the site from a static information archive into a task-completion platform where citizens, businesses, and visitors can find what they need in under 3 clicks.
+
+Core Principles: User-centered design, mobile-first responsiveness, plain language, and transparency.
+
+IA Strategy: Organized by life events (Passports, Taxes, Business, Health) rather than government org charts.
+
+Tech Stack: Next.js / Tailwind CSS / Strapi CMS / hosted on Cloudflare.
+
+Integration: Acts as a unified gateway to external .gov.mw service domains (e-Visa, Trade Portal, Open Data).
+
+Localization: Full support for English and Chichewa.
+
+
 # Government of Malawi Portal - Project Structure
 
 ## Overview
