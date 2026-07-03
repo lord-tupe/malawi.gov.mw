@@ -1,4 +1,4 @@
-# 🇲🇼 malawi.gov.mw — The Digital Government Portal
+# 🇲🇼 malawi.gov.mw - The Digital Government Portal
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/your-repo)
